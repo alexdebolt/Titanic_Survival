@@ -19,10 +19,10 @@ passengers['FirstClass'] = passengers['Pclass'].apply(lambda x: 1 if x == 1 else
 
 # Create a second class column
 passengers['SecondClass'] = passengers['Pclass'].apply(lambda x: 1 if x == 2 else 0)
-# print(passengers)
+print(passengers)
 
 # Select the desired features
-features = passengers[['Sex', 'Age', 'FirstClass', 'SecondClass']]
+features = passengers[['Sex', 'Age', 'FirstClass', 'SecondClass', 'Fare']]
 survival = passengers['Survived']
 
 # Perform train, test, split
@@ -39,34 +39,34 @@ model.fit(X_train, y_train)
 
 # Score the model on the train data
 training_score = model.score(X_train, y_train)
-# print(training_score)
+print(training_score)
 # Score the model on the test data
 test_score = model.score(X_test, y_test)
-# print(test_score)
+print(test_score)
 
 # Analyze the coefficients
-# print(model.coef_)
+print(model.coef_)
 
-# Sample passenger features
-Jack = np.array([0.0,20.0,0.0,0.0])
-Rose = np.array([1.0,17.0,1.0,0.0])
-Me = np.array([0.0,25,0.0,0.0])
+# # Sample passenger features
+# Jack = np.array([0.0,20.0,0.0,0.0])
+# Rose = np.array([1.0,17.0,1.0,0.0])
+# Me = np.array([0.0,25,0.0,0.0])
 
-# Combine passenger arrays
-sample_passengers = np.array([Jack, Rose, Me])
-# print(sample_passengers)
+# # Combine passenger arrays
+# sample_passengers = np.array([Jack, Rose, Me])
+# # print(sample_passengers)
 
-# Scale the sample passenger features
-sample_passengers = scaler.transform(sample_passengers)
-# print(sample_passengers)
+# # Scale the sample passenger features
+# sample_passengers = scaler.transform(sample_passengers)
+# # print(sample_passengers)
 
-# Make survival predictions!
-predictions = model.predict(sample_passengers)
-print(predictions)
+# # Make survival predictions!
+# predictions = model.predict(sample_passengers)
+# # print(predictions)
 
 
-probabilities = model.predict_proba(sample_passengers)
-print(probabilities)
+# probabilities = model.predict_proba(sample_passengers)
+# # print(probabilities)
 
 
 
